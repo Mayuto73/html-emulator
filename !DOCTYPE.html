@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLエミュレーター</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        textarea { width: 100%; height: 200px; font-family: monospace; }
+        iframe { width: 100%; height: 300px; border: 1px solid #ccc; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>HTMLエミュレーター</h2>
+    <textarea id="htmlInput" placeholder="ここにHTMLを入力"></textarea>
+    <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+
+    <script>
+        document.getElementById("htmlInput").addEventListener("input", function () {
+            const html = this.value;
+            const iframe = document.getElementById("preview");
+            iframe.srcdoc = html;
+        });
+    </script>
+</body>
+</html>
